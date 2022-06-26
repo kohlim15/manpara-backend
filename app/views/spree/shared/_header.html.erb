@@ -18,7 +18,25 @@
                   <li>
                     <%= render 'spree/shared/locale_dropdown' %>
                   </li>
-                  <li><a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a></li>
+                  <% if spree_current_user %>
+                    <% if defined?(spree.account_link_path) %>
+                      <li>
+                        <div class="dropdown navbar-right-dropdown">
+                          <button id="account-button" type="button" data-toggle="dropdown" class="navbar-right-dropdown-toggle account-icon" aria-label="<%= Spree.t('nav_bar.show_user_menu') %>">
+                            <%= icon(name: 'person',
+                                    classes: 'd-inline-block',
+                                    width: 41.4,
+                                    height: 36) %>
+                          </button>
+
+                          <div id="link-to-account" class="dropdown-menu dropdown-menu-right text-right">
+                          </div>
+                        </div>
+                      </li>
+                    <% end %>
+                  <% else %>
+                    <li><a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a></li>
+                  <% end %>
                 </ul>
               </li>
             </ul><!-- End .top-menu -->
@@ -61,3 +79,5 @@
     </header>
   </div>
 <% end %>
+
+<%= render partial: 'spree/shared/session_modals'%>

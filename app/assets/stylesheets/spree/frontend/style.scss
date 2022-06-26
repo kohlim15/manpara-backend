@@ -10289,8 +10289,8 @@ small.form-text {
 	margin-bottom: 0;
 	margin-top: .1rem;
 	font-size: 1.4rem;
-	padding-left: 2.6rem;
-	margin-left: -2.6rem
+	padding-left: 0rem !important;
+	margin-left: -0.4rem
 }
 
 .custom-control-label::before {

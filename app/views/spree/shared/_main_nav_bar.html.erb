@@ -1,34 +1,35 @@
 <% if spree_navigation_data.any? %>
-  <div class="h-100" role="navigation" aria-label="<%= Spree.t('nav_bar.desktop') %>">
-    <ul class="nav h-100 main-nav-bar main-nav">
+<div class="h-100 main-nav" role="navigation" aria-label="<%= Spree.t('nav_bar.desktop') %>">
+  <nav class="main-nav">
+    <ul class="nav h-100 main-nav-bar main-nav menu sf-arrows">
       <% spree_navigation_data.each do |root| %>
         <li class="p-0 nav-item main-nav-bar-category">
           <% has_dropdown = root[:items].present? || root[:promo_banners].present? %>
           <% dropdown_toggle_class = has_dropdown ? "dropdown-toggle" : "" %>
           <% data_attr = has_dropdown ? { toggle: "dropdown" } : {} %>
           <% aria_attr = has_dropdown ? { haspopup: true, expanded: false } : {} %>
-          <%= link_to root[:title], root[:url], class: "nav-link main-nav-bar-item main-nav-bar-category-button #{dropdown_toggle_class}",  data: data_attr, aria: aria_attr %>
+          <%= link_to root[:title], root[:url], class: "sf-with-ul",  data: data_attr, aria: aria_attr %>
           <% if has_dropdown %>
-            <div class="dropdown-menu w-100 shadow main-nav-bar-category-dropdown">
-              <div class="container p-0 d-flex justify-content-xl-around mx-auto">
-                <div class="row">
-                  <% if root[:items].present? %>
-                    <div class="category-links">
-                      <% if root[:subtitle].present? %>
-                        <div class="category-links-header text-uppercase">
-                          <%= root[:subtitle] %>
-                        </div>
+            <div class="megamenu megamenu-sm">
+              <div class="row no-gutters">
+                <% if root[:items].present? %>
+                  <div class="category-links col-md-6">
+                    <% if root[:subtitle].present? %>
+                      <div class="menu-col menu-title text-uppercase">
+                        <%= root[:subtitle] %>
+                      </div>
+                    <% end %>
+                    <ul class="pl-0">
+                      <% root[:items].each do |item| %>
+                        <li>
+                          <%= link_to item[:title], item[:url], class: "text-uppercase main-nav-bar-category-links dropdown-item" %>
+                        </li>
                       <% end %>
-                      <ul class="pl-0">
-                        <% root[:items].each do |item| %>
-                          <li>
-                            <%= link_to item[:title], item[:url], class: "text-uppercase main-nav-bar-category-links dropdown-item" %>
-                          </li>
-                        <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
-                  <% if root[:promo_banners].present? %>
+                    </ul>
+                  </div>
+                <% end %>
+                <% if root[:promo_banners].present? %>
+                  <div class="col-md-6">
                     <% root[:promo_banners].each do |promo_banner| %>
                       <%= link_to promo_banner[:url], class: "dropdown-item" do %>
                         <div class="category-image text-center mx-3">
@@ -44,13 +45,14 @@
                         </div>
                       <% end %>
                     <% end %>
-                  <% end %>
-                </div>
+                  </div>
+                <% end %>
               </div>
             </div>
           <% end %>
         </li>
       <% end %>
     </ul>
-  </div>
+  </nav>
+</div>
 <% end %>

@@ -1,17 +1,19 @@
-<div class="header-search-wrapper search-wrapper-wide">
-  <%= form_tag spree.products_path, method: :get, class: "py-md-1 d-flex align-items-center search-form" do %>
-    <%= search_field_tag :keywords,
-                         params[:keywords],
-                         placeholder: Spree.t(:search),
-                         title: Spree.t(:search),
-                         autofocus: true,
-                         'aria-label': Spree.t(:search),
-                         class: " border-0 p-3" %>
-    <button type="submit" class="btn btn-primary" aria-label="Submit">
-      <%= icon(name: 'search',
-              classes: 'd-inline',
-              width: 27,
-              height: 27) %>
-    </button>
-  <% end %>
-</div><!-- End .header-search -->
+<div class="header-center">
+  <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
+    <%= form_tag spree.products_path, method: :get, class: "header-search-wrapper search-wrapper-wide search-form" do %>
+      <button type="submit" class="btn btn-primary" aria-label="Submit">
+        <%= icon(name: 'search',
+                classes: 'icon-search',
+                width: 27,
+                height: 27) %>
+      </button>
+      <%= search_field_tag :keywords,
+                           params[:keywords],
+                           placeholder: Spree.t(:search),
+                           title: Spree.t(:search),
+                           autofocus: true,
+                           'aria-label': Spree.t(:search),
+                           class: "form-control" %>
+    <% end %>
+  </div><!-- End .header-search -->
+</div>

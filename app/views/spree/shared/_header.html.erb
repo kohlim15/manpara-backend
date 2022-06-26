@@ -13,27 +13,10 @@
                 <a href="#">Links</a>
                 <ul>
                   <li>
-                    <div class="header-dropdown">
-                      <a href="#">USD</a>
-                      <div class="header-menu">
-                        <ul>
-                          <li><a href="#">Eur</a></li>
-                          <li><a href="#">Usd</a></li>
-                        </ul>
-                      </div><!-- End .header-menu -->
-                    </div>
+                    <%= render 'spree/shared/currency_dropdown' %>
                   </li>
                   <li>
-                    <div class="header-dropdown">
-                      <a href="#">English</a>
-                      <div class="header-menu">
-                        <ul>
-                          <li><a href="#">English</a></li>
-                          <li><a href="#">French</a></li>
-                          <li><a href="#">Spanish</a></li>
-                        </ul>
-                      </div><!-- End .header-menu -->
-                    </div>
+                    <%= render 'spree/shared/locale_dropdown' %>
                   </li>
                   <li><a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a></li>
                 </ul>
@@ -58,107 +41,9 @@
               </div>
 
               <div class="header-right">
-                  <div class="dropdown compare-dropdown">
-                      <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
-                          <div class="icon">
-                              <i class="icon-random"></i>
-                          </div>
-                          <p>Compare</p>
-                      </a>
-
-                      <div class="dropdown-menu dropdown-menu-right">
-                          <ul class="compare-products">
-                              <li class="compare-product">
-                                  <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                  <h4 class="compare-product-title"><a href="#">Quick Heal Antivirus</a></h4>
-                              </li>
-                              <li class="compare-product">
-                                  <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                  <h4 class="compare-product-title"><a href="#">Avast Antivirus</a></h4>
-                              </li>
-                          </ul>
-
-                          <div class="compare-actions">
-                              <a href="#" class="action-link">Clear All</a>
-                              <a href="#" class="btn btn-outline-primary-2"><span>Compare</span><i class="icon-long-arrow-right"></i></a>
-                          </div>
-                      </div><!-- End .dropdown-menu -->
-                  </div><!-- End .compare-dropdown -->
-
-                  <div class="wishlist">
-                      <a href="wishlist.html" title="Wishlist">
-                          <div class="icon">
-                              <i class="icon-heart-o"></i>
-                              <!-- <span class="wishlist-count badge"></span>-->
-                          </div>
-                          <p>Wishlist</p>
-                      </a>
-                  </div><!-- End .compare-dropdown -->
-
-                  <div class="dropdown cart-dropdown">
-                      <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                          <div class="icon">
-                              <i class="icon-shopping-cart"></i>
-                              <span class="cart-count">2</span>
-                          </div>
-                          <p>Cart</p>
-                      </a>
-
-                      <div class="dropdown-menu dropdown-menu-right">
-                          <div class="dropdown-cart-products">
-                              <div class="product">
-                                  <div class="product-cart-details">
-                                      <h4 class="product-title">
-                                          <a href="#">Antivirus</a>
-                                      </h4>
-
-                                      <span class="cart-product-info">
-                                          <span class="cart-product-qty">1</span>
-                                          x 84.00
-                                      </span>
-                                  </div><!-- End .product-cart-details -->
-
-                                  <figure class="product-image-container">
-                                      <a href="#" class="product-image">
-                                          <img src="" alt="product">
-                                      </a>
-                                  </figure>
-                                  <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                              </div><!-- End .product -->
-
-                              <div class="product">
-                                  <div class="product-cart-details">
-                                      <h4 class="product-title">
-                                          <a href="#">Antivirus</a>
-                                      </h4>
-
-                                      <span class="cart-product-info">
-                                          <span class="cart-product-qty">1</span>
-                                          x 76.00
-                                      </span>
-                                  </div><!-- End .product-cart-details -->
-
-                                  <figure class="product-image-container">
-                                      <a href="#" class="product-image">
-                                          <img src="" alt="product">
-                                      </a>
-                                  </figure>
-                                  <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                              </div><!-- End .product -->
-                          </div><!-- End .cart-product -->
-
-                          <div class="dropdown-cart-total">
-                              <span>Total</span>
-
-                              <span class="cart-total-price">160.00</span>
-                          </div><!-- End .dropdown-cart-total -->
-
-                          <div class="dropdown-cart-action">
-                              <a href="#" class="btn btn-primary">View Cart</a>
-                              <a href="#" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
-                          </div><!-- End .dropdown-cart-total -->
-                      </div><!-- End .dropdown-menu -->
-                  </div><!-- End .cart-dropdown -->
+                <div id="link-to-cart">
+                  <%= render 'spree/shared/cart', class: 'd-inline-block cart-icon', size: 36, item_count: 0 %>
+                </div><!-- End .cart-dropdown -->
               </div><!-- End .header-right -->
           </div><!-- End .container -->
       </div><!-- End .header-middle -->

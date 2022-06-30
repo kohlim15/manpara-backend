@@ -85,7 +85,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
+  adapter: postgresql
   database: manpara_backend_production
-  username: manpara_backend
-  password: <%= ENV['MANPARA_BACKEND_DATABASE_PASSWORD'] %>
+  timeout: 5000
+  port: 5432
